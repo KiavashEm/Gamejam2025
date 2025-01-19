@@ -10,13 +10,17 @@ public class MoveWithoutRotation : MonoBehaviour
     private NavMeshAgent agent;
     public Vector3 initialOffset = new Vector3(0, 0, 1); // Adjust this value to set the initial forward position
 
-    void Start()
+
+
+    public void StartPlot(Transform[] listOfWaypoints)
     {
+        waypoints = listOfWaypoints;
+
         agent = GetComponent<NavMeshAgent>();
         agent.updateRotation = false; // Prevent the agent from rotating automatically
 
         // Set the initial position to be forward from the background
-        transform.position = Vector3.zero + initialOffset;
+        //transform.position = Vector3.zero + initialOffset;
         transform.rotation = Quaternion.identity; // Set the rotation to 0
 
         MoveToNextWaypoint();
